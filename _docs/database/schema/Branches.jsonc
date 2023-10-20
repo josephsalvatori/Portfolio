@@ -1,0 +1,62 @@
+/**
+ * Accounts ~ Branches
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-branches",
+	"title": "Accounts ~ Branches",
+	"type": "object",
+	"description": "",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"audiences": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"audience_id": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					}
+				}
+			}
+		},
+		"billing_account": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"organization": {
+			"description": "The Organization this Branch belongs to",
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"owner": {
+			"description": "The original (or transferred) owner of this Branch",
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"users": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"user_id": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					},
+					"role": {
+						"description": "This user account level for access",
+						"type": "string",
+						"enum": [
+							"superadmin",
+							"admin",
+							"manager",
+							"editor",
+							"viewer"
+						]
+					}
+				}
+			}
+		}
+	},
+	"required": [
+		"_id"
+	]
+}

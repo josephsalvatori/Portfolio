@@ -1,0 +1,15 @@
+.slice-section {
+	min-height: 100%;
+	position: relative;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.group-section {
+
+	&:empty {
+		display: none;
+	}
+}

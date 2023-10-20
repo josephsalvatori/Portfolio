@@ -1,0 +1,190 @@
+/**
+ * Accounts ~ Users
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-users",
+	"title": "Accounts ~ Users",
+	"type": "object",
+	"description": "",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"auth": {
+			"type": "object",
+			"properties": {
+				"token_created": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"token_expires": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"last_access_date": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"last_access_location": {
+					"type": "string" // HASH
+				},
+				"last_access_ip": {
+					"type": "string" // IP
+				}
+			}
+		},
+		"auth_token": {
+			"type": "string",
+			"format": "uuid"
+		},
+		"passkeys": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"key": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"created_at": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"details": {
+			"description": "The user details entered by this individual",
+			"type": "object",
+			"properties": {
+				"birthday": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"first_name": {
+					"type": "string"
+				},
+				"last_name": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"email": {
+			"type": "string",
+			"format": "email"
+		},
+		"notifications": {
+			"type": "object",
+			"properties": {
+				"marketing": {
+					"type": "boolean"
+				}
+			}
+		},
+		"phone": {
+			"type": "string",
+			"pattern": "^(+[0-9]{1,2})?(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+		},
+		"updated_at": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"status": {
+			"type": "string",
+			"enum": [
+				"pending",
+				"unverified",
+				"verified"
+			]
+		}
+	},
+	"required": [
+		"_id",
+		"auth_id",
+		"created_at",
+		"email",
+		"role",
+		"updated_at"
+	]
+}
+
+/**
+ * Field addition ~ Admin triggered
+ * Any text entry is encrypted
+ */
+// {
+// 	"created_at": "",
+// 	"updated_at": "",
+// 	"updated_by": "",
+// 	// "changelog": [
+// 	// 	{
+// 	// 		"edited_by": "",
+// 	// 		"change": "",
+// 	// 		"updated_at": ""
+// 	// 	}
+// 	// ],
+// 	"field_name": "",
+// 	"field_description": "",
+// 	"field_type": "",
+// 	"access_level": ""
+// }
+
+/**
+ * JSON Generator
+ * https://app.json-generator.com/2h8Kw1hqJniJ
+ *
+
+JG.repeat(10, {
+	uid: JG.guid(),
+	access_level: 1,
+	first_name: JG.firstName(),
+	last_name: JG.lastName(),
+	email() {
+		return (
+			_.snakeCase(this.first_name + "." + this.last_name) +
+			'@test.website'
+		).toLowerCase();
+	},
+	department: JG.random('operations', 'accounts', 'technology', 'creative'),
+	group: JG.random('directors', 'managers', 'employee', 'non-employee'),
+	role: "",
+	start_date: JG.date(new Date(2020, 0, 1), new Date(2023, 0, 1)),
+	end_date: null,
+	office: "",
+	manager: "",
+	private: {
+		address: {
+			address1: `${JG.integer(1, 100)} ${JG.street()}`,
+			address2: "",
+			city: JG.city(),
+			state: JG.state(),
+			region: "",
+			country: "United States",
+			zip: ""
+		},
+		birthday: moment(JG.date(new Date(1984, 0, 1), new Date(2002, 0, 1))).format('YYYY-MM-DD'),
+		work_phone: "",
+		work_hours: {}
+	},
+	profile: {
+		name() {
+        	return `${this.first_name} ${this.last_name}`;
+        },
+		home_phone: "",
+		honorific: "",
+		image: "",
+		pronouns: "",
+		work_location: "",
+		about: JG.loremIpsum({ units: 'sentences', count: 2 }),
+		emergency_contact: [],
+		app_links: {
+			google: null,
+			slack: null
+		}
+	}
+});
+
+ */

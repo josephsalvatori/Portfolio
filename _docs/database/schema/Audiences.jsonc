@@ -1,0 +1,66 @@
+/**
+ * Accounts ~ Audiences
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-audiences",
+	"title": "Accounts ~ Audiences",
+	"type": "object",
+	"description": "",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"access": {
+			"type": "string",
+			"enum": [
+				"private",
+				"branch",
+				"organization"
+			]
+		},
+		"created_at": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"settings": {
+			"type": "object",
+			"properties": {} // TODO: Model these settings
+		},
+		"inbound_data": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"owner": {
+			"description": "The original (or transferred) owner of this Audience",
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"inbound_reports": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"file_id": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					}
+				}
+			}
+		},
+		"status": {
+			"type": "string",
+			"enum": [
+				"draft",
+				"active",
+				"closed"
+			]
+		},
+		"updated_at": {
+			"type": "string",
+			"format": "date-time"
+		}
+	},
+	"required": [
+		"_id",
+		"owner",
+		"access"
+	]
+}

@@ -1,0 +1,163 @@
+/**
+ * Settings
+ *	- All responsive variables run mobile first, and are declared in the tailwind.css file
+ */
+
+/** Screens 0+ (MOBILE-FIRST) */
+:root {
+
+	/* Borders */
+	--border-default-color: var(--border-default, #{$grey});
+	--border-radius: var(--border-radius-outer-base);
+	--border-radius-inner: var(--border-radius-inner-base 8px);
+	--border-radius-input: var(--border-radius-input-base, 6px);
+
+	/* Buttons */
+	--button-max-width: var(--button-max-width-base);
+
+	/* Colors */
+
+	/* Spacing */
+	--content-gap: var(--content-gap-x-base);
+	--content-gap-x: var(--content-gap-x-base);
+	--content-gap-y: var(--content-gap-y-base);
+	--content-gutter: var(--content-gutter-x-base);
+	--content-gutter-x: var(--content-gutter-x-base);
+	--content-gutter-y: var(--content-gutter-y-base);
+	--grid-gap: var(--grid-gap-x-base);
+	--grid-gap-x: var(--grid-gap-x-base);
+	--grid-gap-y: var(--grid-gap-y-base);
+	--site-gutter: var(--site-gutter-x-base);
+	--site-gutter-x: var(--site-gutter-x-base);
+	--site-gutter-y: var(--site-gutter-y-base);
+}
+
+/** Screens 480+ */
+@include screen-min-xs {
+
+	:root {
+
+	}
+}
+
+/** Screens 640+ */
+@include screen-min-sm {
+
+	:root {
+
+	}
+}
+
+/** Screens 768+ */
+@include screen-min-md {
+
+	:root {
+
+	}
+}
+
+/** Screens 769+ (TABLET+) */
+@include screen-min-tb {
+
+	:root {
+		--border-radius: var(--border-radius-outer-tb);
+		--border-radius-inner: var(--border-radius-inner-tb);
+		--border-radius-input: var(--border-radius-input-tb);
+		--border-width: 2px;
+		--button-max-width: var(--button-max-width-tb);
+		--content-gap: var(--content-gap-x-tb);
+		--content-gap-x: var(--content-gap-x-tb);
+		--content-gap-y: var(--content-gap-y-tb);
+		--content-gutter: var(--content-gutter-x-tb);
+		--content-gutter-x: var(--content-gutter-x-tb);
+		--content-gutter-y: var(--content-gutter-y-tb);
+		--grid-gap: var(--grid-gap-x-tb);
+		--grid-gap-x: var(--grid-gap-x-tb);
+		--grid-gap-y: var(--grid-gap-y-tb);
+		--site-gutter: var(--site-gutter-x-tb);
+		--site-gutter-x: var(--site-gutter-x-tb);
+		--site-gutter-y: var(--site-gutter-y-tb);
+	}
+
+	.force-mobile {
+		--border-radius: var(--border-radius-outer-base);
+		--border-radius-inner: var(--border-radius-inner-base);
+		--border-radius-input: var(--border-radius-input-base);
+		--button-max-width: var(--button-max-width-base);
+		--content-gap: var(--content-gap-x-base);
+		--content-gap-x: var(--content-gap-x-base);
+		--content-gap-y: var(--content-gap-y-base);
+		--content-gutter: var(--content-gutter-x-base);
+		--content-gutter-x: var(--content-gutter-x-base);
+		--content-gutter-y: var(--content-gutter-y-base);
+		--grid-gap: var(--grid-gap-x-base);
+		--grid-gap-x: var(--grid-gap-x-base);
+		--grid-gap-y: var(--grid-gap-y-base);
+		--site-gutter: var(--site-gutter-x-base);
+		--site-gutter-x: var(--site-gutter-x-base);
+		--site-gutter-y: var(--site-gutter-y-base);
+	}
+}
+
+/** Screens 1024+ */
+@include screen-min-lg {
+
+	:root {
+
+	}
+}
+
+/** Screens 1025+ (DESKTOP+) */
+@include screen-min-dk {
+
+	:root {
+		--border-radius: var(--border-radius-outer-dk);
+		--border-radius-inner: var(--border-radius-inner-dk);
+		--border-radius-input: var(--border-radius-input-dk);
+		--button-max-width: var(--button-max-width-dk);
+		--content-gap: var(--content-gap-x-dk);
+		--content-gap-x: var(--content-gap-x-dk);
+		--content-gap-y: var(--content-gap-y-dk);
+		--content-gutter: var(--content-gutter-x-dk);
+		--content-gutter-x: var(--content-gutter-x-dk);
+		--content-gutter-y: var(--content-gutter-y-dk);
+		--grid-gap: var(--grid-gap-x-dk);
+		--grid-gap-x: var(--grid-gap-x-dk);
+		--grid-gap-y: var(--grid-gap-y-dk);
+		--site-gutter: var(--site-gutter-x-dk);
+		--site-gutter-x: var(--site-gutter-x-dk);
+		--site-gutter-y: var(--site-gutter-y-dk);
+	}
+}
+
+/** Screens 1280+ */
+@include screen-min-xl {
+
+	:root {
+
+	}
+}
+
+/** Screens 1440+ */
+@include screen-min-2xl {
+
+	:root {
+
+	}
+}
+
+/** Screens 1680+ */
+@include screen-min-3xl {
+
+	:root {
+
+	}
+}
+
+/** Screens 1920+ */
+@include screen-min-4xl {
+
+	:root {
+
+	}
+}

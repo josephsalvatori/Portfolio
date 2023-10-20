@@ -1,0 +1,15 @@
+/**
+ * Theme color overwrites
+ */
+.placeholder {
+	animation: pulse 2s linear infinite;
+	background-color: $placeholder !important;
+	border-color: $placeholder !important;
+}
+
+@keyframes pulse {
+
+	50% {
+		opacity: .5;
+	}
+}

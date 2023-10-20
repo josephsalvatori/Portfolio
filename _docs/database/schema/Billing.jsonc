@@ -1,0 +1,83 @@
+/**
+ * Billing accounts
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-billing",
+	"title": "Accounts ~ Billing",
+	"type": "object",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"billing": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"billing_address1": {
+					"type": "string"
+				},
+				"billing_address2": {
+					"type": "string"
+				},
+				"billing_city": {
+					"type": "string"
+				},
+				"billing_province": {
+					"type": "string"
+				},
+				"billing_provincecode": {
+					"type": "string"
+				},
+				"billing_country": {
+					"type": "string"
+				},
+				"billing_countrycode": {
+					"type": "string"
+				},
+				"billing_zip": {
+					"type": "string"
+				},
+				"billing_email": {
+					"type": "string",
+					"format": "email"
+				},
+				"billing_phone": {
+					"type": "string",
+					"pattern": "^(+[0-9]{1,2})?(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$"
+				},
+				"token": {
+					"type": "string"
+				}
+			}
+		},
+		"originator": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"users": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"user_id": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					},
+					"role": {
+						"description": "This user account level for access",
+						"type": "string",
+						"enum": [
+							"superadmin",
+							"admin",
+							"manager",
+							"editor",
+							"viewer"
+						]
+					}
+				}
+			}
+		}
+	},
+	"required": [
+		"_id"
+	]
+}

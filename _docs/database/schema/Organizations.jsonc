@@ -1,0 +1,60 @@
+/**
+ * Accounts ~ Organizations
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-organizations",
+	"title": "Accounts ~ Organizations",
+	"type": "object",
+	"description": "",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"owner": {
+			"description": "The original (or transferred) owner of this Organization",
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"billing_account": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"branches": {
+			"description": "Branches under this Organization",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"branch": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					}
+				}
+			}
+		},
+		"users": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"user_id": {
+						"$ref": "../../Common.json#/definitions/ObjectId"
+					},
+					"role": {
+						"description": "This user account level for access",
+						"type": "string",
+						"enum": [
+							"superadmin",
+							"admin",
+							"manager",
+							"editor",
+							"viewer"
+						]
+					}
+				}
+			}
+		}
+	},
+	"required": [
+		"_id",
+		"owner"
+	]
+}

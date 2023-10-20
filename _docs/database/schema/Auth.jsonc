@@ -1,0 +1,41 @@
+/**
+ * Accounts ~ Auth
+ */
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "database-accounts-table-auth",
+	"title": "Accounts ~ Auth",
+	"type": "object",
+	"description": "",
+	"properties": {
+		"_id": {
+			"$ref": "../../Common.json#/definitions/ObjectId"
+		},
+		"auth_created": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"auth_exp": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"auth_token": {
+			"type": "string",
+			"format": "uuid"
+		},
+		"last_access_date": {
+			"type": "string",
+			"format": "date-time"
+		},
+		"last_access_location": {
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"required": [
+		"_id",
+		"auth_token",
+		"auth_created",
+		"auth_exp"
+	]
+}

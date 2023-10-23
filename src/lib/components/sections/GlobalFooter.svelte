@@ -12,16 +12,16 @@ import { asLink, asText, isFilled } from "@prismicio/helpers";
 
 <footer>
 	<div class="ca">
-		<Grid max={2}>
+		<!-- <Grid max={2}>
 			<div>
 				<div>LOGO?</div>
 				<div>TAGLINE?</div>
 			</div>
 			<div>NEWSLETTER?</div>
-		</Grid>
-		<div class="border-b-2 ct w-full"></div>
+		</Grid> -->
+		<!-- <div class="border-b-2 ct w-full"></div> -->
 		<div class="ct dk:flex dk:justify-between dk:items-start">
-			<navigation aria-label="Footer Navigation" class="w-full">
+			<!-- <navigation aria-label="Footer Navigation" class="w-full">
 				<Grid max={4} min={2}>
 					{#if isFilled.sliceZone($page?.data?.settings?.navigation?.data?.slices_footer)}
 						{#each $page.data.settings.navigation.data.slices_footer as navList}
@@ -52,8 +52,8 @@ import { asLink, asText, isFilled } from "@prismicio/helpers";
 						{/each}
 					{/if}
 				</Grid>
-			</navigation>
-			<ul class="dk:ml-[var(--content-gutter)] flex items-center [&>*]:ml-[var(--content-gutter)] [&>:first-child]:ml-0 max-w-full">
+			</navigation> -->
+			<ul class="flex items-center [&>*]:mr-[var(--content-gutter)] [&>:first-child]:mr-0 max-w-full">
 				{#if $page.data?.settings?.settings?.data?.facebook_url?.url}
 					<li><a class="block w-[30px]" href="{asLink($page.data.settings.settings.data.facebook_url)}" target="_blank" rel="noopener" aria-label="Facebook"><IconSocialFacebook size={"30"} strokeWidth={0} /></li>
 				{/if}
@@ -74,7 +74,7 @@ import { asLink, asText, isFilled } from "@prismicio/helpers";
 				{/if}
 			</ul>
 		</div>
-		<div class="border-b-2 ct w-full tb:hidden"></div>
+		<!-- <div class="border-b-2 ct w-full tb:hidden"></div> -->
 		<div class="ct flex flex-col-reverse tb:flex-row items-start tb:justify-between pt-[var(--content-gutter)]">
 			<small>Copyright &copy; {new Date().getFullYear()} {($page.data?.settings?.settings?.data?.organization_legal_name || $page.data?.settings?.settings?.data?.organization_name) ? ($page.data?.settings?.settings?.data?.organization_legal_name || $page.data?.settings?.settings?.data?.organization_name) + "," : ""} All Rights Reserved</small>
 			<navigation aria-label="Utility Navigation">

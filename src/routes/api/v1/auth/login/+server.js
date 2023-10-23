@@ -5,7 +5,7 @@ import { error, json } from "@sveltejs/kit";
 
 /** @type {import('@sveltejs/adapter-vercel').Config} */
 export const config = {
-	runtime: "edge"
+	runtime: "nodejs18.x"
 };
 
 /** @type {import('./$types').RequestHandler} */

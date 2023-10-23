@@ -8,7 +8,7 @@ import { randomBytes } from "node:crypto";
 
 /** @type {import('@sveltejs/adapter-vercel').Config} */
 export const config = {
-	runtime: "edge"
+	runtime: "nodejs18.x"
 };
 
 /** @type {import('./$types').RequestHandler} */

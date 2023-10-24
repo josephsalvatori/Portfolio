@@ -67,7 +67,7 @@ $: documentHeight = (windowHeight - (sectionPadding === "None" ? $client.headerH
 $: if(mediaAspectRatio !== "none") {
 	aspectRatio = `${refs.aspect[mediaAspectRatio]}`;
 } else {
-	aspectRatio = `${(mediaFit !== "Cover") ? (mediaWidth / 100) + "/" + (mediaHeight / 100) : (elWidth >= 768 && documentHeight > mediaHeight ? windowWidth / 200 : 1) + "/" + (elWidth >= 768 && documentHeight > mediaHeight ? documentHeight / 100 : 1)}`;
+	aspectRatio = `${(mediaFit !== "Cover") ? (mediaWidth / 100) + "/" + (mediaHeight / 100) : (elWidth >= 768 && documentHeight < mediaHeight ? windowWidth / 200 : 1) + "/" + (elWidth >= 768 && documentHeight < mediaHeight ? documentHeight / 100 : 1)}`;
 }
 </script>
 
@@ -75,7 +75,7 @@ $: if(mediaAspectRatio !== "none") {
 
 {#if isFilled.richText(content) || isFilled.link(data.button_link) || eyebrow || video || image}
 	<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="grid min-h-full w-full {elWidth >= 768 && !forceMobileBreak ? "grid-cols-2" : ""}" use:inview={inViewOptions} on:inview_change={inViewChange} on:inview_animate={inViewAnimate} on:inview_init={inViewInit}>
-		<div class="media relative overflow-hidden w-full min-h-full aspect-[var(--aspect)] {elWidth >= 768 && desktopLayout !== "Image Left" ? "md:row-start-1 md:col-start-2" : ""} {elWidth < 768 && mobileLayout !== "Image Top" ? "row-start-2 col-start-1" : ""} {sectionPadding.toLowerCase() !== "none" || mediaRoundCorners === true ? "rounded-[var(--border-radius)] overflow-hidden" : ""}" style="--aspect:{aspectRatio};">
+		<div class="media relative overflow-hidden w-full min-h-full aspect-[var(--aspect)] {elWidth >= 768 && desktopLayout !== "Image Left" ? "md:row-start-1 md:col-start-2" : ""} {elWidth < 768 && mobileLayout !== "Image Top" ? "row-start-2 col-start-1" : ""} {sectionPadding.toLowerCase() !== "none" || mediaRoundCorners === true ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{aspectRatio};">
 			{#if video}
 				<Video src={video.url.replace("http://", "https://")} fit={mediaFit.toLowerCase()} playback={videoPlayback} />
 			{/if}

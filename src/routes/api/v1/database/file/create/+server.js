@@ -20,8 +20,6 @@ export async function POST({ fetch, locals, request, setHeaders }) {
 		errors: []
 	};
 
-	console.log("LET'S UPLOAD");
-
 	try {
 
 		/** Get JSON */

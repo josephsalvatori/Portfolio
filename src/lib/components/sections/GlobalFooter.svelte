@@ -20,7 +20,7 @@ import { asLink, asText, isFilled } from "@prismicio/helpers";
 			<div>NEWSLETTER?</div>
 		</Grid> -->
 		<!-- <div class="border-b-2 ct w-full"></div> -->
-		<div class="ct dk:flex dk:justify-between dk:items-start">
+		<div class="dk:flex dk:justify-between dk:items-start">
 			<!-- <navigation aria-label="Footer Navigation" class="w-full">
 				<Grid max={4} min={2}>
 					{#if isFilled.sliceZone($page?.data?.settings?.navigation?.data?.slices_footer)}

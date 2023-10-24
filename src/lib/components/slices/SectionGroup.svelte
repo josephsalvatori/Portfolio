@@ -15,7 +15,7 @@ const section = data?.section?.data;
 
 /** Columns */
 let column_count = (data?.column_count && parseInt(data?.column_count) < 6) ? parseInt(data.column_count) : 1;
-let column_gap = data?.column_gap || false;
+let column_gap = data?.column_gap || true;
 let column_screen = data?.column_screen || false;
 let column_alignment = data?.column_alignment || "Fill";
 let column_max_width = data?.column_max_width || null;

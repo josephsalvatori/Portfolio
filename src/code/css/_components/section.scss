@@ -12,4 +12,16 @@
 	&:empty {
 		display: none;
 	}
+
+	// Section has gaps
+	.grid-gap {
+
+		.slice-section {
+			border-radius: var(--border-radius);
+		}
+	}
+
+	.slice-section {
+
+	}
 }

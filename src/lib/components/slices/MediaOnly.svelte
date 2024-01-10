@@ -57,7 +57,7 @@ $: aspectRatioPortrait = `${(mediaFit !== "Cover" || mediaWidthPortrait) ? (medi
 {#if image || imagePortrait || video || videoPortrait}
 	<div class="relative h-full" use:inview={inViewOptions} on:inview_change={inViewChange} on:inview_animate={inViewAnimate} on:inview_init={inViewInit}>
 		{#if mediaPortraitMobile && (imagePortrait || videoPortrait) && elWidth < 768}
-			<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="media relative min-h-full w-full overflow-hidden aspect-[var(--aspect)] h-full flex items-center justify-center {sectionPadding.toLowerCase() !== "none" || mediaRoundCorners ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{(mediaAspectRatio ? mediaAspectRatio.replace(":", "/") : aspectRatioPortrait)};">
+			<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="media relative min-h-full w-full overflow-hidden aspect-[var(--aspect)] h-full flex items-center justify-center {mediaRoundCorners ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{(mediaAspectRatio ? mediaAspectRatio.replace(":", "/") : aspectRatioPortrait)};">
 				{#if videoPortrait}
 					<Video src={videoPortrait.url.replace("http://", "https://")} fit={mediaFit.toLowerCase()} playback={videoPlayback} />
 				{/if}
@@ -68,7 +68,7 @@ $: aspectRatioPortrait = `${(mediaFit !== "Cover" || mediaWidthPortrait) ? (medi
 		{:else if windowWidth > 0}
 			{@const imageFallback = (image) ? image : imagePortrait}
 			{@const videoFallback = (video) ? video : videoPortrait}
-			<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="media relative min-h-full w-full overflow-hidden aspect-[var(--aspect)] h-full flex items-center justify-center {sectionPadding.toLowerCase() !== "none" ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{(mediaAspectRatio ? mediaAspectRatio.replace(":", "/") : aspectRatio)};">
+			<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="media relative min-h-full w-full overflow-hidden aspect-[var(--aspect)] h-full flex items-center justify-center {mediaRoundCorners ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{(mediaAspectRatio ? mediaAspectRatio.replace(":", "/") : aspectRatio)};">
 				{#if videoFallback}
 					<Video src={videoFallback.url.replace("http://", "https://")} fit={mediaFit.toLowerCase()} playback={videoPlaybackPortrait} />
 				{/if}

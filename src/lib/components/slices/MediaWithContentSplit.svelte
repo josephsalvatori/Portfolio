@@ -74,7 +74,7 @@ $: if(mediaAspectRatio !== "none") {
 <svelte:window bind:innerWidth={windowWidth} bind:innerHeight={windowHeight}></svelte:window>
 
 {#if isFilled.richText(content) || isFilled.link(data.button_link) || eyebrow || video || image}
-	<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="grid min-h-full w-full {elWidth >= 768 && !forceMobileBreak ? "grid-cols-2" : ""}" use:inview={inViewOptions} on:inview_change={inViewChange} on:inview_animate={inViewAnimate} on:inview_init={inViewInit}>
+	<div data-items={items?.length > 0 ? items.length : null} bind:clientWidth={elWidth} class="grid w-full {elWidth >= 768 && !forceMobileBreak ? "grid-cols-2 min-h-full" : ""}" use:inview={inViewOptions} on:inview_change={inViewChange} on:inview_animate={inViewAnimate} on:inview_init={inViewInit}>
 		<div class="media relative overflow-hidden w-full min-h-full aspect-[var(--aspect)] {elWidth >= 768 && desktopLayout !== "Image Left" ? "md:row-start-1 md:col-start-2" : ""} {elWidth < 768 && mobileLayout !== "Image Top" ? "row-start-2 col-start-1" : ""} {sectionPadding.toLowerCase() !== "none" || mediaRoundCorners === true ? "rounded-[var(--border-radius)]" : ""}" style="--aspect:{aspectRatio};">
 			{#if video}
 				<Video src={video.url.replace("http://", "https://")} fit={mediaFit.toLowerCase()} playback={videoPlayback} />
